@@ -11,15 +11,15 @@ const CONCEPT_KEYS: ConceptKey[] = ["restaurant", "medical", "service"];
 
 const CONCEPT_IMAGES: Record<ConceptKey, { img: string; alt: string }> = {
   restaurant: {
-    img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop",
+    img: "/images/concept-restaurant.jpg",
     alt: "Pratinjau website restoran dan kafe modern",
   },
   medical: {
-    img: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1200&auto=format&fit=crop",
+    img: "/images/concept-medical.jpg",
     alt: "Pratinjau website klinik medis dan konsultan",
   },
   service: {
-    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
+    img: "/images/concept-service.jpg",
     alt: "Pratinjau website kontraktor dan jasa arsitektur",
   },
 };

@@ -24,6 +24,9 @@ const LABEL_CLASSES =
 const INPUT_CLASSES =
   "w-full h-10 sm:h-11 rounded-xl border border-sky-200/80 bg-white/95 px-3.5 text-xs sm:text-sm text-sky-950 placeholder:text-sky-900/40 focus:border-sky-700 focus:ring-2 focus:ring-sky-500/20 focus:outline-none fluid-transition";
 
+const SKY_BLUR_DATA_URL =
+  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSIyNSIgdmlld0JveD0iMCAwIDQwIDI1Ij48cmVjdCB3aWR0aD0iNDAiIGhlaWdodD0iMjUiIGZpbGw9IiNCOERDRkEiLz48Y2lyY2xlIGN4PSIyMCIgY3k9IjE4IiByPSIxNCIgZmlsbD0iI0VFRjhmRiIvPjwvc3ZnPg==";
+
 export function BlueprintForm() {
   const { locale, t } = useLanguage();
   const [state, formAction, isPending] = useActionState(
@@ -125,10 +128,12 @@ export function BlueprintForm() {
           style={{ transform: "scale(1.06) translate3d(0px, 0px, 0)" }}
         >
           <Image
-            src="https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?q=80&w=1800&auto=format&fit=crop"
+            src="/images/sky-bg.jpg"
             alt="Latar belakang langit biru cerah dan awan putih"
             fill
-            loading="lazy"
+            quality={75}
+            placeholder="blur"
+            blurDataURL={SKY_BLUR_DATA_URL}
             sizes="100vw"
             className="object-cover object-center"
           />

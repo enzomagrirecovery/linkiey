@@ -5,6 +5,10 @@ import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { ArrowUpRightGlyph, WhatsAppGlyph } from "@/components/Icons";
 
+// Tiny base64 sky-blue blur placeholder so the hero canvas is never blank even for 1ms
+const SKY_BLUR_DATA_URL =
+  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSIyNSIgdmlld0JveD0iMCAwIDQwIDI1Ij48cmVjdCB3aWR0aD0iNDAiIGhlaWdodD0iMjUiIGZpbGw9IiNCOERDRkEiLz48Y2lyY2xlIGN4PSIyMCIgY3k9IjE4IiByPSIxNCIgZmlsbD0iI0VFRjhmRiIvPjwvc3ZnPg==";
+
 export function InteractiveHero() {
   const { locale, t } = useLanguage();
   const containerRef = useRef<HTMLElement>(null);
@@ -52,11 +56,14 @@ export function InteractiveHero() {
           style={{ transform: "scale(1.06) translate3d(0px, 0px, 0)" }}
         >
           <Image
-            src="https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?q=85&w=2400&auto=format&fit=crop"
+            src="/images/sky-bg.jpg"
             alt="Langit biru cerah dengan awan lembut"
             fill
             priority
             fetchPriority="high"
+            quality={75}
+            placeholder="blur"
+            blurDataURL={SKY_BLUR_DATA_URL}
             sizes="100vw"
             className="object-cover object-center"
           />

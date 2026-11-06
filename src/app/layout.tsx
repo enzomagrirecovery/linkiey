@@ -22,6 +22,11 @@ export const metadata: Metadata = {
       "Linkiey — Jasa Pembuatan Website Rp 500rb di Awal & Rp 200rb/Bulan",
     template: "%s | Linkiey Indonesia",
   },
+  icons: {
+    icon: "/images/logo.png",
+    shortcut: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
   description:
     "Jasa pembuatan website profesional di Indonesia oleh Linkiey. Klaim desain konsep gratis dulu—cukup Rp 500rb biaya setup awal dan Rp 200rb/bulan sudah termasuk cloud hosting cepat, SSL gratis, & revisi konten.",
   keywords: [
@@ -112,11 +117,11 @@ export default function RootLayout({
     <html lang="id" className={`${geist.variable} light scroll-smooth`}>
       <head>
         <link
-          rel="preconnect"
-          href="https://images.unsplash.com"
-          crossOrigin="anonymous"
+          rel="preload"
+          as="image"
+          href="/images/sky-bg.jpg"
+          fetchPriority="high"
         />
-        <link rel="dns-prefetch" href="https://images.unsplash.com" />
       </head>
       <body className="antialiased min-h-screen flex flex-col font-body-md text-body-md overflow-x-hidden">
         <script

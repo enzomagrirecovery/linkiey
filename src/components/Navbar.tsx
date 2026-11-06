@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import {
   WhatsAppGlyph,
@@ -36,14 +37,18 @@ export function Navbar() {
         >
           <div className="flex items-center gap-6 lg:gap-10">
             <a
-              className="font-bold tracking-tighter text-sky-950 text-[16px] sm:text-[18px] font-h1 flex items-center gap-2"
+              className="font-bold tracking-tighter text-sky-950 text-[16px] sm:text-[18px] font-h1 flex items-center gap-2.5"
               href="#"
             >
-              <span
-                aria-hidden="true"
-                className="w-2 h-2 rounded-full bg-sky-600 inline-block shadow-[0_0_8px_rgba(2,132,199,0.6)]"
+              <Image
+                src="/images/logo.png"
+                alt="Linkiey Logo"
+                width={30}
+                height={30}
+                priority
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg object-cover shadow-sm border border-sky-200/70"
               />
-              Linkiey
+              <span>Linkiey</span>
             </a>
             <div className="hidden lg:flex items-center gap-7">
               {navLinks.map((link) => (

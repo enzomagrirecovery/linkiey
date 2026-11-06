@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { LanguageProvider, useLanguage } from "@/context/LanguageContext";
 import { Navbar } from "@/components/Navbar";
 import { InteractiveHero } from "@/components/InteractiveHero";
@@ -97,8 +98,15 @@ function LandingCanvas() {
       <footer className="relative z-10 w-full border-t border-white/80 bg-white/55 backdrop-blur-xl mt-auto py-8 sm:py-10">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6 text-center md:text-left">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
-            <span className="font-bold tracking-tighter text-sky-950 font-h3 text-base sm:text-[18px]">
-              Linkiey
+            <span className="font-bold tracking-tighter text-sky-950 font-h3 text-base sm:text-[18px] flex items-center gap-2">
+              <Image
+                src="/images/logo.png"
+                alt="Linkiey Logo"
+                width={26}
+                height={26}
+                className="w-6 h-6 rounded-md object-cover shadow-sm border border-sky-200/70"
+              />
+              <span>Linkiey</span>
             </span>
             <span className="text-[11px] sm:text-xs text-sky-900/65 font-body-md">
               {t.footer.rights}
