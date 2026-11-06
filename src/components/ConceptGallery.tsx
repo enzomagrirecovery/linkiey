@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { ArrowUpRightGlyph, CheckGlyph } from "@/components/Icons";
@@ -28,9 +28,16 @@ export function ConceptGallery() {
   const { t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
+  // Automatically flow through the 3 showcase items every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % CONCEPT_KEYS.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [activeIndex]);
+
   const activeKey = CONCEPT_KEYS[activeIndex];
   const current = t.gallery.items[activeKey];
-  const media = CONCEPT_IMAGES[activeKey];
 
   return (
     <section
@@ -38,7 +45,7 @@ export function ConceptGallery() {
       aria-labelledby="gallery-heading"
       className="max-w-[1180px] mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-24 lg:mb-[120px] scroll-mt-20"
     >
-      {/* Centered Heading (Matches Reference Layout) */}
+      {/* Centered Heading */}
       <h2
         id="gallery-heading"
         className="font-h2 text-center text-[26px] sm:text-[38px] lg:text-[46px] font-bold text-sky-950 tracking-tight leading-[1.1] mb-8 sm:mb-12"
@@ -46,7 +53,7 @@ export function ConceptGallery() {
         {t.gallery.heading}
       </h2>
 
-      {/* 2-Column Split: Left Vertical Step List + Right Showcase Image */}
+      {/* 2-Column Split: Left Auto-Flowing Step List + Right Crossfading Showcase Image */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
         {/* Left Column: 3 Interactive Vertical Items with Circle Indicators */}
         <div
@@ -68,18 +75,17 @@ export function ConceptGallery() {
                 aria-selected={isSelected}
                 aria-controls={`panel-${key}`}
                 onClick={() => setActiveIndex(idx)}
-                onMouseEnter={() => setActiveIndex(idx)}
-                className={`group text-left flex items-start gap-4 sm:gap-5 fluid-transition ${
+                className={`group text-left flex items-start gap-4 sm:gap-5 transition-all duration-500 ease-out ${
                   isSelected
-                    ? "opacity-100"
+                    ? "opacity-100 translate-x-1"
                     : "opacity-40 hover:opacity-75"
                 }`}
               >
                 {/* Left Circle Indicator (Checkmark when active/passed, Number when upcoming) */}
                 <span
-                  className={`mt-1 w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center shrink-0 text-xs sm:text-sm font-semibold fluid-transition ${
+                  className={`mt-1 w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center shrink-0 text-xs sm:text-sm font-semibold transition-all duration-500 ${
                     isSelected
-                      ? "bg-sky-950 text-white shadow-[0_8px_20px_-4px_rgba(12,74,110,0.4)] scale-105"
+                      ? "bg-sky-950 text-white shadow-[0_8px_20px_-4px_rgba(12,74,110,0.4)] scale-110"
                       : "border border-sky-900/40 text-sky-950 bg-white/40"
                   }`}
                 >
@@ -104,27 +110,39 @@ export function ConceptGallery() {
           })}
         </div>
 
-        {/* Right Column: Clean Rounded Showcase Image */}
+        {/* Right Column: Smooth Crossfading Rounded Showcase Image */}
         <div
           role="tabpanel"
           id={`panel-${activeKey}`}
           aria-labelledby={`tab-${activeKey}`}
           className="md:col-span-7"
         >
-          <div className="relative h-[260px] sm:h-[360px] lg:h-[410px] w-full rounded-2xl sm:rounded-[1.75rem] overflow-hidden border border-white/90 shadow-[0_28px_70px_-18px_rgba(12,74,110,0.22)] bg-white/80">
-            <Image
-              src={media.img}
-              alt={media.alt}
-              fill
-              loading="lazy"
-              sizes="(max-width: 768px) 100vw, 680px"
-              className="object-cover fluid-transition"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-sky-950/60 via-transparent to-transparent pointer-events-none" />
+          <div className="relative h-[260px] sm:h-[360px] lg:h-[410px] w-full rounded-2xl sm:rounded-[1.75rem] overflow-hidden border border-white/90 shadow-[0_28px_70px_-18px_rgba(12,74,110,0.22)] bg-sky-100">
+            {CONCEPT_KEYS.map((key, idx) => {
+              const media = CONCEPT_IMAGES[key];
+              const isSelected = idx === activeIndex;
+              return (
+                <Image
+                  key={key}
+                  src={media.img}
+                  alt={media.alt}
+                  fill
+                  priority={idx === 0}
+                  sizes="(max-width: 768px) 100vw, 680px"
+                  className={`object-cover transition-all duration-700 ease-out ${
+                    isSelected
+                      ? "opacity-100 scale-100 z-10"
+                      : "opacity-0 scale-105 z-0 pointer-events-none"
+                  }`}
+                />
+              );
+            })}
+
+            <div className="absolute inset-0 z-20 bg-gradient-to-t from-sky-950/65 via-transparent to-transparent pointer-events-none" />
 
             {/* Subtle Bottom Caption & CTA Overlay */}
-            <div className="absolute bottom-3.5 left-3.5 right-3.5 sm:bottom-5 sm:left-5 sm:right-5 flex items-center justify-between gap-3">
-              <span className="text-white font-semibold text-sm sm:text-base drop-shadow-sm">
+            <div className="absolute bottom-3.5 left-3.5 right-3.5 sm:bottom-5 sm:left-5 sm:right-5 z-30 flex items-center justify-between gap-3">
+              <span className="text-white font-semibold text-sm sm:text-base drop-shadow-sm transition-all duration-500">
                 {current.title}
               </span>
               <a
