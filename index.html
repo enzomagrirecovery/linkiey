@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Auralis Web — $0 Upfront Website Subscription for Modern Businesses</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#c4c7c7",
+                      "on-tertiary-fixed": "#1d1b1a",
+                      "tertiary-container": "#1d1b1a",
+                      "surface-tint": "#5f5e5e",
+                      "on-secondary-container": "#626262",
+                      "surface-container-low": "#f7f3f2",
+                      "on-surface": "#1c1b1b",
+                      "on-secondary-fixed-variant": "#464747",
+                      "primary": "#000000",
+                      "surface-container-highest": "#e5e2e1",
+                      "inverse-on-surface": "#f4f0ef",
+                      "on-tertiary-container": "#868381",
+                      "on-error-container": "#93000a",
+                      "outline": "#747878",
+                      "on-primary": "#ffffff",
+                      "inverse-primary": "#c8c6c5",
+                      "surface-container-high": "#ebe7e6",
+                      "error": "#ba1a1a",
+                      "surface-bright": "#fdf8f8",
+                      "on-tertiary-fixed-variant": "#484645",
+                      "background": "#fdf8f8",
+                      "surface-variant": "#e5e2e1",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed": "#1b1c1c",
+                      "inverse-surface": "#313030",
+                      "secondary-container": "#e1dfdf",
+                      "primary-container": "#1c1b1b",
+                      "surface": "#fdf8f8",
+                      "on-surface-variant": "#444748",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "secondary": "#5e5e5e",
+                      "on-error": "#ffffff",
+                      "secondary-fixed-dim": "#c7c6c6",
+                      "on-primary-fixed-variant": "#474646",
+                      "surface-dim": "#ddd9d8",
+                      "tertiary": "#000000",
+                      "tertiary-fixed-dim": "#cac6c3",
+                      "surface-container": "#f1edec",
+                      "on-primary-fixed": "#1c1b1b",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "on-background": "#1c1b1b",
+                      "tertiary-fixed": "#e6e1df",
+                      "secondary-fixed": "#e4e2e2",
+                      "primary-fixed": "#e5e2e1",
+                      "error-container": "#ffdad6",
+                      "on-primary-container": "#858383"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px",
+                      "2xl": "1.5rem",
+                      "3xl": "1.75rem"
+              },
+              "spacing": {
+                      "unit_base": "8px",
+                      "max_width": "1280px",
+                      "gutter": "32px",
+                      "columns": "12",
+                      "section_gap_max": "180px",
+                      "container_padding": "32px",
+                      "section_gap_min": "140px"
+              },
+              "fontFamily": {
+                      "h1": ["Geist", "sans-serif"],
+                      "h2": ["Geist", "sans-serif"],
+                      "label-caps": ["Geist", "sans-serif"],
+                      "body-md": ["Geist", "sans-serif"],
+                      "body-lg": ["Geist", "sans-serif"],
+                      "h3": ["Geist", "sans-serif"]
+              },
+              "fontSize": {
+                      "h1": ["68px", {"lineHeight": "1.06", "letterSpacing": "-0.04em", "fontWeight": "600"}],
+                      "h2": ["52px", {"lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "600"}],
+                      "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                      "h3": ["28px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+    <style>
+        body { background-color: #F7F7F5; color: #111111; }
+        .text-secondary-auralis { color: #6B6B6B; }
+        .bg-panel-auralis { background-color: #F3F2EF; }
+        .bg-card-auralis { background-color: #FCFCFB; }
+        .border-auralis { border-color: #E7E7E4; }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        .animate-marquee {
+            display: flex;
+            animation: marquee 40s linear infinite;
+            min-width: 100%;
+        }
+        .group:hover .animate-marquee {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col font-body-md text-body-md overflow-x-hidden">
+
+<!-- TOP NAVIGATION -->
+<nav class="fixed top-0 w-full z-50 border-b border-zinc-200/60 bg-[#F7F7F5]/85 backdrop-blur-md transition-all">
+    <div class="max-w-[1280px] mx-auto px-6 md:px-8 flex justify-between items-center h-[72px]">
+        <div class="flex items-center gap-12">
+            <a class="text-lg font-bold tracking-tighter text-zinc-900 text-[20px] font-h1 flex items-center gap-2" href="#">
+                <span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
+                Auralis Studio
+            </a>
+            <div class="hidden md:flex items-center gap-7">
+                <a class="text-sm font-medium tracking-tight text-zinc-500 hover:text-zinc-900 transition-colors duration-200" href="#why-us">Why Us</a>
+                <a class="text-sm font-medium tracking-tight text-zinc-500 hover:text-zinc-900 transition-colors duration-200" href="#gallery">Live Concepts</a>
+                <a class="text-sm font-medium tracking-tight text-zinc-500 hover:text-zinc-900 transition-colors duration-200" href="#how-it-works">How It Works</a>
+                <a class="text-sm font-medium tracking-tight text-zinc-500 hover:text-zinc-900 transition-colors duration-200" href="#pricing">Pricing</a>
+            </div>
+        </div>
+        <div class="flex items-center gap-3">
+            <a class="hidden sm:inline-flex text-sm font-medium text-secondary-auralis hover:text-primary px-3 py-2 transition-colors" href="#pricing">View Plans</a>
+            <a class="bg-primary text-on-primary px-5 py-2.5 rounded-full font-medium transition-all hover:opacity-90 active:scale-95 text-[14px]" href="#claim-blueprint">
+                Claim Your Free Concept Design
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- MAIN CONTENT CANVAS -->
+<main class="flex-grow pt-[130px] pb-12">
+
+    <!-- HERO SECTION -->
+    <section class="max-w-[1280px] mx-auto px-6 md:px-8 mb-[110px]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+            <div class="lg:col-span-8 flex flex-col gap-6">
+                <div class="inline-flex items-center gap-2 self-start bg-surface-container-low px-3.5 py-1.5 rounded-full border border-auralis">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="font-label-caps text-label-caps uppercase text-primary tracking-widest">Web Design Subscription • $0 Upfront</span>
+                </div>
+                <h1 class="font-h1 text-[44px] sm:text-[60px] lg:text-h1 text-primary tracking-tight leading-[1.05]">
+                    A Beautiful Website for Your Business. $0 Upfront. Just One Flat Monthly Fee.
+                </h1>
+                <div class="flex flex-wrap items-center gap-4 pt-2">
+                    <a class="bg-primary text-on-primary px-7 py-4 rounded-full font-medium transition-all hover:bg-zinc-800 shadow-sm flex items-center gap-2 text-base" href="#claim-blueprint">
+                        <span>Claim Your Free Concept Design</span>
+                        <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                    </a>
+                    <a class="bg-transparent border border-outline/40 text-primary px-6 py-4 rounded-full font-medium transition-all hover:bg-surface-variant/60 text-base" href="#gallery">
+                        Explore Live Previews
+                    </a>
+                </div>
+            </div>
+            <div class="lg:col-span-4 flex flex-col justify-end lg:pl-6 border-l border-auralis/80">
+                <p class="font-body-lg text-body-lg text-secondary-auralis">
+                    Stop paying thousands of dollars upfront to traditional agencies. Get a lightning-fast, mobile-responsive website with lifetime updates and hosting included.
+                </p>
+                <div class="grid grid-cols-3 gap-4 mt-8 pt-6 border-t border-auralis">
+                    <div>
+                        <div class="text-xl font-bold text-primary">$0</div>
+                        <div class="text-xs text-secondary-auralis">Upfront Deposit</div>
+                    </div>
+                    <div>
+                        <div class="text-xl font-bold text-primary">99.9%</div>
+                        <div class="text-xs text-secondary-auralis">Uptime & SSL</div>
+                    </div>
+                    <div>
+                        <div class="text-xl font-bold text-primary">&lt; 5 Days</div>
+                        <div class="text-xs text-secondary-auralis">Turnaround</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE WORK GALLERY / CONCEPT PREVIEWS (INTERACTIVE PRODUCT PANEL) -->
+    <section id="gallery" class="max-w-[1280px] mx-auto px-6 md:px-8 mb-[160px] scroll-mt-28">
+        <div class="bg-panel-auralis rounded-3xl p-6 md:p-8 flex flex-col relative overflow-hidden border border-auralis min-h-[620px] justify-between">
+            <!-- Top Interactive Niche Switcher Tabs -->
+            <div class="flex flex-wrap justify-between items-center gap-4 z-10">
+                <div class="flex flex-wrap bg-surface-container-low p-1.5 rounded-full border border-auralis shadow-sm" role="tablist">
+                    <button onclick="switchConcept('restaurant')" id="tab-restaurant" class="concept-tab px-5 py-2 bg-surface text-primary rounded-full text-sm font-medium shadow-sm transition-all">
+                        Sleek Restaurant
+                    </button>
+                    <button onclick="switchConcept('medical')" id="tab-medical" class="concept-tab px-5 py-2 text-secondary-auralis rounded-full text-sm font-medium hover:text-primary transition-all">
+                        Medical &amp; Advisory
+                    </button>
+                    <button onclick="switchConcept('service')" id="tab-service" class="concept-tab px-5 py-2 text-secondary-auralis rounded-full text-sm font-medium hover:text-primary transition-all">
+                        Local Home Services
+                    </button>
+                </div>
+                <div class="bg-surface-container-low px-4 py-2 rounded-full border border-auralis flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <span class="text-sm font-medium">Interactive Concept Showcase</span>
+                </div>
+            </div>
+
+            <!-- Ambient Background Orbs -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div id="orb-1" class="w-[320px] h-[320px] rounded-full bg-gradient-to-tr from-rose-500/50 to-orange-400/50 blur-3xl absolute -ml-48 transition-all duration-700"></div>
+                <div id="orb-2" class="w-[420px] h-[420px] rounded-full bg-gradient-to-tr from-indigo-500/40 to-purple-500/40 blur-3xl absolute transition-all duration-700"></div>
+                <div id="orb-3" class="w-[280px] h-[280px] rounded-full bg-gradient-to-tr from-emerald-500/40 to-teal-400/40 blur-3xl absolute ml-48 mt-20 transition-all duration-700"></div>
+            </div>
+
+            <!-- Center Interactive Concept Viewport -->
+            <div class="z-10 my-8 w-full max-w-4xl mx-auto">
+                <div class="bg-white/65 backdrop-blur-2xl border border-white/80 rounded-[1.75rem] shadow-[0_32px_80px_-20px_rgba(0,0,0,0.18)] overflow-hidden transition-all duration-500">
+                    <!-- Browser Bar -->
+                    <div class="px-5 py-3.5 bg-white/80 border-b border-black/5 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-rose-400/80"></span>
+                            <span class="w-3 h-3 rounded-full bg-amber-400/80"></span>
+                            <span class="w-3 h-3 rounded-full bg-emerald-400/80"></span>
+                        </div>
+                        <div id="concept-url" class="text-xs font-mono text-secondary-auralis bg-surface-container px-4 py-1 rounded-full border border-auralis">
+                            https://oma-kitchen.auralis.site
+                        </div>
+                        <div class="flex items-center gap-1.5 text-xs font-medium text-emerald-700">
+                            <span class="material-symbols-outlined text-sm">lock</span>
+                            <span>SSL Active</span>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Concept Body -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 min-h-[340px]">
+                        <div class="md:col-span-7 p-8 flex flex-col justify-between bg-white/40">
+                            <div>
+                                <span id="concept-badge" class="text-[11px] font-bold uppercase tracking-[0.2em] text-rose-600 mb-2 block">Hospitality &amp; Dining Layout</span>
+                                <h3 id="concept-title" class="font-h3 text-[28px] text-primary mb-3 leading-snug">Oma Artisan Kitchen &amp; Wine Bar</h3>
+                                <p id="concept-desc" class="text-sm text-secondary-auralis leading-relaxed">
+                                    Designed for high-conversion table reservations, interactive seasonal menus, and instant mobile tap-to-call directions.
+                                </p>
+                            </div>
+                            <div class="pt-6 mt-6 border-t border-black/5 grid grid-cols-3 gap-4">
+                                <div>
+                                    <span class="text-[10px] uppercase tracking-widest text-secondary-auralis font-semibold block">Page Speed</span>
+                                    <span id="concept-speed" class="text-lg font-bold text-primary">99 / 100</span>
+                                </div>
+                                <div>
+                                    <span class="text-[10px] uppercase tracking-widest text-secondary-auralis font-semibold block">Core Feature</span>
+                                    <span id="concept-feature" class="text-sm font-semibold text-primary">1-Click Booking</span>
+                                </div>
+                                <div>
+                                    <span class="text-[10px] uppercase tracking-widest text-secondary-auralis font-semibold block">Mobile UX</span>
+                                    <span class="text-sm font-semibold text-emerald-700">Responsive</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:col-span-5 relative overflow-hidden min-h-[240px]">
+                            <img id="concept-img" alt="Concept Mock Preview" class="w-full h-full object-cover transition-all duration-500" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1000&auto=format&fit=crop">
+                            <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-md px-3.5 py-2 rounded-full text-xs font-semibold text-primary shadow-md flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-sm text-emerald-600">verified</span>
+                                Included in All Plans
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="flex flex-wrap justify-between items-center gap-4 z-10 bg-surface/85 backdrop-blur-md p-4 rounded-2xl border border-auralis">
+                <div class="flex items-center gap-6 overflow-x-auto no-scrollbar">
+                    <span class="text-sm font-semibold text-primary flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-base text-emerald-600">check_circle</span>
+                        Custom Brand Tailoring
+                    </span>
+                    <span class="text-sm font-medium text-secondary-auralis">Mobile-First Layouts</span>
+                    <span class="text-sm font-medium text-secondary-auralis">Local SEO Schema</span>
+                    <span class="text-sm font-medium text-secondary-auralis">Lifetime Content Edits</span>
+                </div>
+                <a class="bg-primary text-on-primary px-5 py-2.5 rounded-full text-sm font-medium whitespace-nowrap hover:opacity-90 transition-opacity" href="#claim-blueprint">
+                    Request Niche Blueprint
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST STRIP & MARQUEE -->
+    <section class="max-w-[1280px] mx-auto px-6 md:px-8 text-center mb-8">
+        <h3 class="font-label-caps text-label-caps text-secondary-auralis uppercase tracking-widest">Powering modern local businesses, clinics, &amp; hospitality brands</h3>
+    </section>
+    <section class="w-full overflow-hidden mt-0 mb-[150px] py-4">
+        <div class="flex whitespace-nowrap overflow-hidden group">
+            <div class="flex items-center gap-24 animate-marquee">
+                <div class="flex items-center gap-2 text-secondary-auralis/30 font-bold text-xl uppercase tracking-tighter italic"><span class="material-symbols-outlined text-3xl">restaurant</span>Oma Kitchen</div>
+                <div class="flex items-center gap-2 text-secondary-auralis/30 font-bold text-xl uppercase tracking-tighter italic"><span class="material-symbols-outlined text-3xl">medical_services</span>Vanguard Health</div>
+                <div class="flex items-center gap-2 text-secondary-auralis/30 font-bold text-xl uppercase tracking-tighter italic"><span class="material-symbols-outlined text-3xl">account_balance</span>Apex CPA Group</div>
+                <div class="flex items-center gap-2 text-secondary-auralis/30 font-bold text-xl uppercase tracking-tighter italic"><span class="material-symbols-outlined text-3xl">home_repair_service</span>Lumina HVAC</div>
+                <div class="flex items-center gap-2 text-secondary-auralis/30 font-bold text-xl uppercase tracking-tighter italic"><span class="material-symbols-outlined text-3xl">spa</span>Solvay Aesthetics</div>
+                <div class="flex items-center gap-2 text-secondary-auralis/30 font-bold text-xl uppercase tracking-tighter italic"><span class="material-symbols-outlined text-3xl">gavel</span>Mercer Law</div>
+                <div class="flex items-center gap-2 text-secondary-auralis/30 font-bold text-xl uppercase tracking-tighter italic"><span class="material-symbols-outlined text-3xl">Architecture</span>Kinetix Build</div>
+            </div>
+            <div aria-hidden="true" class="flex items-center gap-24 animate-marquee">
+                <div class="flex items-center gap-2 text-secondary-auralis/30 font-bold text-xl uppercase tracking-tighter italic"><span class="material-symbols-outlined text-3xl">restaurant</span>Oma Kitchen</div>
+                <div class="flex items-center gap-2 text-secondary-auralis/30 font-bold text-xl uppercase tracking-tighter italic"><span class="material-symbols-outlined text-3xl">medical_services</span>Vanguard Health</div>
+                <div class="flex items-center gap-2 text-secondary-auralis/30 font-bold text-xl uppercase tracking-tighter italic"><span class="material-symbols-outlined text-3xl">account_balance</span>Apex CPA Group</div>
+                <div class="flex items-center gap-2 text-secondary-auralis/30 font-bold text-xl uppercase tracking-tighter italic"><span class="material-symbols-outlined text-3xl">home_repair_service</span>Lumina HVAC</div>
+                <div class="flex items-center gap-2 text-secondary-auralis/30 font-bold text-xl uppercase tracking-tighter italic"><span class="material-symbols-outlined text-3xl">spa</span>Solvay Aesthetics</div>
+                <div class="flex items-center gap-2 text-secondary-auralis/30 font-bold text-xl uppercase tracking-tighter italic"><span class="material-symbols-outlined text-3xl">gavel</span>Mercer Law</div>
+                <div class="flex items-center gap-2 text-secondary-auralis/30 font-bold text-xl uppercase tracking-tighter italic"><span class="material-symbols-outlined text-3xl">Architecture</span>Kinetix Build</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE PROBLEM GRID (THE "WHY US") -->
+    <section id="why-us" class="max-w-[1280px] mx-auto px-6 md:px-8 mb-[180px] scroll-mt-28">
+        <div class="flex items-center gap-4 mb-8">
+            <span class="font-label-caps text-label-caps bg-surface-variant text-primary px-3.5 py-1.5 rounded-full uppercase">The Why Us</span>
+            <div class="h-px bg-auralis flex-grow"></div>
+        </div>
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="font-h2 text-[40px] md:text-h2 text-primary mb-5">Two models, one clear winner</h2>
+            <p class="font-body-lg text-body-lg text-secondary-auralis">
+                Traditional web agencies lock you into bloated retainers after charging thousands upfront. We flipped the model into an effortless, all-inclusive monthly subscription.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Traditional Web Design Card -->
+            <div class="bg-card-auralis rounded-3xl p-8 md:p-10 border border-auralis flex flex-col justify-between relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-rose-500/5 to-orange-500/10 pointer-events-none"></div>
+                <div class="z-10">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-error-container/60 text-on-error-container text-xs font-semibold uppercase tracking-wider mb-6">
+                        <span class="material-symbols-outlined text-base">cancel</span>
+                        Traditional Web Agencies
+                    </div>
+                    <h3 class="font-h3 text-h3 text-primary mb-8">High upfront risk &amp; hidden hourly billing</h3>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-surface-container-low/80 border border-auralis">
+                            <span class="material-symbols-outlined text-error mt-0.5">close</span>
+                            <div>
+                                <h4 class="font-semibold text-primary text-base">$3,000–$10,000+ Upfront Cost</h4>
+                                <p class="text-sm text-secondary-auralis mt-1">Massive capital outlay before you see a single live visitor or lead.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-surface-container-low/80 border border-auralis">
+                            <span class="material-symbols-outlined text-error mt-0.5">close</span>
+                            <div>
+                                <h4 class="font-semibold text-primary text-base">Outdated in 2 Years</h4>
+                                <p class="text-sm text-secondary-auralis mt-1">Static builds left to decay with broken plugins, slow speeds, and aging design.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-surface-container-low/80 border border-auralis">
+                            <span class="material-symbols-outlined text-error mt-0.5">close</span>
+                            <div>
+                                <h4 class="font-semibold text-primary text-base">Charged for Every Single Text Change</h4>
+                                <p class="text-sm text-secondary-auralis mt-1">Surprise $150/hr invoices just to swap a photo, update hours, or add a service.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="z-10 mt-8 pt-6 border-t border-auralis flex items-center justify-between text-xs text-secondary-auralis">
+                    <span>Average Delivery: 8–14 Weeks</span>
+                    <span>Hosting &amp; SSL billed separately</span>
+                </div>
+            </div>
+
+            <!-- Our Subscription Advantage Card -->
+            <div class="bg-card-auralis rounded-3xl p-8 md:p-10 border-2 border-primary flex flex-col justify-between relative overflow-hidden shadow-[0_24px_60px_-15px_rgba(0,0,0,0.08)]">
+                <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-indigo-500/5 to-teal-500/15 pointer-events-none"></div>
+                <div class="z-10">
+                    <div class="flex items-center justify-between gap-2 mb-6">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/15 text-emerald-800 border border-emerald-500/25 text-xs font-semibold uppercase tracking-wider">
+                            <span class="material-symbols-outlined text-base">check_circle</span>
+                            Auralis Subscription Advantage
+                        </div>
+                        <span class="text-xs font-mono uppercase tracking-widest text-secondary-auralis">All-Inclusive</span>
+                    </div>
+                    <h3 class="font-h3 text-h3 text-primary mb-8">Zero upfront risk &amp; lifetime care</h3>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/80 backdrop-blur-md border border-auralis shadow-sm">
+                            <span class="material-symbols-outlined text-emerald-600 mt-0.5 fill">check_circle</span>
+                            <div>
+                                <h4 class="font-semibold text-primary text-base">Zero Upfront Risk ($0 Down)</h4>
+                                <p class="text-sm text-secondary-auralis mt-1">Keep your cash flow healthy. Pay one predictable flat monthly fee only after launch.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/80 backdrop-blur-md border border-auralis shadow-sm">
+                            <span class="material-symbols-outlined text-emerald-600 mt-0.5 fill">check_circle</span>
+                            <div>
+                                <h4 class="font-semibold text-primary text-base">Continuous Modern Updates</h4>
+                                <p class="text-sm text-secondary-auralis mt-1">Proactive framework upgrades, core web vitals tuning, and periodic design refreshes included.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/80 backdrop-blur-md border border-auralis shadow-sm">
+                            <span class="material-symbols-outlined text-emerald-600 mt-0.5 fill">check_circle</span>
+                            <div>
+                                <h4 class="font-semibold text-primary text-base">Unlimited Support Edits</h4>
+                                <p class="text-sm text-secondary-auralis mt-1">Need a new menu item, team bio, or promo banner? Send a message and we update it same-day.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="z-10 mt-8 pt-6 border-t border-auralis flex items-center justify-between text-xs font-medium text-primary">
+                    <span>Average Delivery: 3–5 Business Days</span>
+                    <span class="text-emerald-700">Premium Hosting &amp; SSL Included Free</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS (3 SIMPLE STEPS) -->
+    <section id="how-it-works" class="max-w-[1280px] mx-auto px-6 md:px-8 mb-[180px] scroll-mt-28">
+        <div class="flex items-center gap-4 mb-8">
+            <span class="font-label-caps text-label-caps bg-surface-variant text-primary px-3.5 py-1.5 rounded-full uppercase">How It Works</span>
+            <div class="h-px bg-auralis flex-grow"></div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-14">
+            <div class="lg:col-span-6">
+                <h2 class="font-h2 text-[40px] md:text-[48px] text-primary leading-tight">From concept to live website in 3 simple steps</h2>
+            </div>
+            <div class="lg:col-span-5 lg:col-start-8 flex items-end">
+                <p class="font-body-lg text-body-lg text-secondary-auralis">
+                    No drawn-out discovery phases or technical headaches. We handle design, copy polish, domain hookup, and lifetime maintenance.
+                </p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Step 1 -->
+            <div class="bg-card-auralis rounded-3xl p-8 border border-auralis flex flex-col justify-between min-h-[320px] relative overflow-hidden group hover:shadow-md transition-all">
+                <div class="flex justify-between items-center">
+                    <span class="w-11 h-11 rounded-2xl bg-panel-auralis border border-auralis flex items-center justify-center font-bold text-primary">01</span>
+                    <span class="material-symbols-outlined text-secondary-auralis text-3xl">layers</span>
+                </div>
+                <div class="mt-12">
+                    <h3 class="font-h3 text-[22px] text-primary mb-3">1. Choose Your Plan</h3>
+                    <p class="text-sm text-secondary-auralis leading-relaxed">
+                        Pick the tier that matches your business footprint. Whether you need a high-converting single lander or a multi-page authority site, there is $0 upfront.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="bg-card-auralis rounded-3xl p-8 border border-auralis flex flex-col justify-between min-h-[320px] relative overflow-hidden group hover:shadow-md transition-all">
+                <div class="flex justify-between items-center">
+                    <span class="w-11 h-11 rounded-2xl bg-panel-auralis border border-auralis flex items-center justify-center font-bold text-primary">02</span>
+                    <span class="material-symbols-outlined text-secondary-auralis text-3xl">bolt</span>
+                </div>
+                <div class="mt-12">
+                    <h3 class="font-h3 text-[22px] text-primary mb-3">2. We Build it Fast</h3>
+                    <p class="text-sm text-secondary-auralis leading-relaxed">
+                        We generate and perfect your tailored business blueprint in days. Review your live interactive preview and request any tweaks before going public.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="bg-card-auralis rounded-3xl p-8 border border-auralis flex flex-col justify-between min-h-[320px] relative overflow-hidden group hover:shadow-md transition-all">
+                <div class="flex justify-between items-center">
+                    <span class="w-11 h-11 rounded-2xl bg-primary text-on-primary flex items-center justify-center font-bold">03</span>
+                    <span class="material-symbols-outlined text-emerald-600 text-3xl">rocket_launch</span>
+                </div>
+                <div class="mt-12">
+                    <h3 class="font-h3 text-[22px] text-primary mb-3">3. Launch &amp; Relax</h3>
+                    <p class="text-sm text-secondary-auralis leading-relaxed">
+                        We deploy your new site and handle all ongoing maintenance, security, and updates. Whenever your business evolves, just message us for instant edits.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR CORE PLANS (PRICING SECTION) -->
+    <section id="pricing" class="max-w-[1280px] mx-auto px-6 md:px-8 mb-[180px] scroll-mt-28">
+        <div class="flex items-center gap-4 mb-8">
+            <span class="font-label-caps text-label-caps bg-surface-variant text-primary px-3.5 py-1.5 rounded-full uppercase">Our Core Plans</span>
+            <div class="h-px bg-auralis flex-grow"></div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-10">
+            <div class="lg:col-span-7">
+                <h2 class="font-h2 text-[40px] md:text-[48px] text-primary leading-tight">Transparent flat monthly pricing. $0 upfront.</h2>
+            </div>
+            <div class="lg:col-span-5 flex lg:justify-end">
+                <div class="bg-emerald-500/10 border border-emerald-500/25 rounded-2xl px-5 py-3.5 flex items-center gap-3">
+                    <span class="material-symbols-outlined text-emerald-700 fill">verified_user</span>
+                    <p class="text-xs font-medium text-emerald-950 leading-snug">
+                        <strong>Included in every tier at no extra cost:</strong> Premium Global Edge Hosting &amp; Managed Security Certificates (SSL).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+            <!-- Starter Tier -->
+            <div class="bg-card-auralis rounded-3xl p-8 border border-auralis flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="font-h3 text-xl text-primary">Starter</span>
+                        <span class="text-xs font-medium px-3 py-1 rounded-full bg-panel-auralis border border-auralis text-secondary-auralis">Essential Footprint</span>
+                    </div>
+                    <p class="text-sm text-secondary-auralis mb-6">Ideal for new local businesses and solo practitioners needing a sleek, high-converting presence.</p>
+                    <div class="flex items-baseline gap-1 mb-2">
+                        <span class="text-4xl font-bold text-primary">$99</span>
+                        <span class="text-sm text-secondary-auralis">/month</span>
+                    </div>
+                    <div class="text-xs font-semibold text-emerald-700 mb-6">$0 Upfront Setup Fee</div>
+
+                    <div class="p-3.5 rounded-xl bg-panel-auralis border border-auralis mb-6 flex items-center gap-2.5">
+                        <span class="material-symbols-outlined text-emerald-600 text-lg">dns</span>
+                        <span class="text-xs font-semibold text-primary">Premium Hosting &amp; SSL Included Free</span>
+                    </div>
+
+                    <ul class="space-y-3.5 text-sm text-on-surface-variant mb-8">
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-base text-primary">check</span>Custom 1-to-3 Page Responsive Site</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-base text-primary">check</span>Mobile-First Speed Optimization</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-base text-primary">check</span>Lead Capture &amp; Contact Forms</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-base text-primary">check</span>2 Content &amp; Text Edits / Month</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-base text-primary">check</span>24/7 Uptime &amp; Security Monitoring</li>
+                    </ul>
+                </div>
+                <a href="#claim-blueprint" onclick="selectPlan('Starter ($99/mo)')" class="w-full py-3.5 rounded-full border border-primary text-primary font-medium text-sm text-center hover:bg-primary hover:text-on-primary transition-colors">
+                    Start with Starter — $0 Down
+                </a>
+            </div>
+
+            <!-- Growth Tier (Featured) -->
+            <div class="bg-card-auralis rounded-3xl p-8 border-2 border-primary flex flex-col justify-between relative shadow-[0_32px_64px_-16px_rgba(0,0,0,0.12)]">
+                <div class="absolute -top-3.5 right-6 bg-primary text-on-primary text-[11px] font-bold uppercase tracking-widest px-3.5 py-1 rounded-full">
+                    Most Popular
+                </div>
+                <div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="font-h3 text-xl text-primary">Growth</span>
+                        <span class="text-xs font-medium px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-800">Full Business Suite</span>
+                    </div>
+                    <p class="text-sm text-secondary-auralis mb-6">Built for established clinics, restaurants, and local brands scaling their inbound leads.</p>
+                    <div class="flex items-baseline gap-1 mb-2">
+                        <span class="text-4xl font-bold text-primary">$179</span>
+                        <span class="text-sm text-secondary-auralis">/month</span>
+                    </div>
+                    <div class="text-xs font-semibold text-emerald-700 mb-6">$0 Upfront Setup Fee</div>
+
+                    <div class="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/25 mb-6 flex items-center gap-2.5">
+                        <span class="material-symbols-outlined text-emerald-700 text-lg fill">verified</span>
+                        <span class="text-xs font-semibold text-emerald-950">Premium Hosting &amp; SSL Included Free</span>
+                    </div>
+
+                    <ul class="space-y-3.5 text-sm text-on-surface-variant mb-8">
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-base text-emerald-600">check</span>Up to 8 Custom-Designed Pages</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-base text-emerald-600">check</span><strong>Unlimited Support &amp; Content Edits</strong></li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-base text-emerald-600">check</span>Online Booking / Reservation Integration</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-base text-emerald-600">check</span>Local SEO Schema &amp; Google Maps Sync</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-base text-emerald-600">check</span>Monthly Performance &amp; Traffic Report</li>
+                    </ul>
+                </div>
+                <a href="#claim-blueprint" onclick="selectPlan('Growth ($179/mo)')" class="w-full py-3.5 rounded-full bg-primary text-on-primary font-medium text-sm text-center hover:opacity-90 transition-opacity shadow-md">
+                    Claim Free Growth Concept
+                </a>
+            </div>
+
+            <!-- Premium Tier -->
+            <div class="bg-card-auralis rounded-3xl p-8 border border-auralis flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="font-h3 text-xl text-primary">Premium</span>
+                        <span class="text-xs font-medium px-3 py-1 rounded-full bg-panel-auralis border border-auralis text-secondary-auralis">Multi-Location &amp; Scale</span>
+                    </div>
+                    <p class="text-sm text-secondary-auralis mb-6">For high-volume brands needing custom integrations, dynamic CMS collections, and priority SLA.</p>
+                    <div class="flex items-baseline gap-1 mb-2">
+                        <span class="text-4xl font-bold text-primary">$299</span>
+                        <span class="text-sm text-secondary-auralis">/month</span>
+                    </div>
+                    <div class="text-xs font-semibold text-emerald-700 mb-6">$0 Upfront Setup Fee</div>
+
+                    <div class="p-3.5 rounded-xl bg-panel-auralis border border-auralis mb-6 flex items-center gap-2.5">
+                        <span class="material-symbols-outlined text-emerald-600 text-lg">dns</span>
+                        <span class="text-xs font-semibold text-primary">Premium Hosting &amp; SSL Included Free</span>
+                    </div>
+
+                    <ul class="space-y-3.5 text-sm text-on-surface-variant mb-8">
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-base text-primary">check</span>Unlimited Pages &amp; Service Landers</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-base text-primary">check</span><strong>Same-Day Priority Support Edits</strong></li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-base text-primary">check</span>CRM, POS &amp; Custom Webhook Flows</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-base text-primary">check</span>Quarterly Conversion Rate Redesigns</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-base text-primary">check</span>Dedicated Design &amp; Success Partner</li>
+                    </ul>
+                </div>
+                <a href="#claim-blueprint" onclick="selectPlan('Premium ($299/mo)')" class="w-full py-3.5 rounded-full border border-primary text-primary font-medium text-sm text-center hover:bg-primary hover:text-on-primary transition-colors">
+                    Start with Premium — $0 Down
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEAD CAPTURE / BOOKING SECTION -->
+    <section id="claim-blueprint" class="max-w-[1280px] mx-auto px-6 md:px-8 mb-[120px] scroll-mt-28">
+        <div class="bg-panel-auralis rounded-3xl p-8 md:p-14 border border-auralis relative overflow-hidden">
+            <!-- Subtle Orbs -->
+            <div class="w-[300px] h-[300px] rounded-full bg-gradient-to-tr from-indigo-500/15 to-purple-500/15 blur-3xl absolute -top-20 -right-20 pointer-events-none"></div>
+            <div class="w-[260px] h-[260px] rounded-full bg-gradient-to-tr from-emerald-500/15 to-teal-400/15 blur-3xl absolute -bottom-20 -left-20 pointer-events-none"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10">
+                <div class="lg:col-span-5 flex flex-col justify-between">
+                    <div>
+                        <span class="font-label-caps text-label-caps bg-surface text-primary px-3.5 py-1.5 rounded-full border border-auralis uppercase inline-block mb-6">
+                            Zero-Obligation Preview
+                        </span>
+                        <h2 class="font-h2 text-[36px] md:text-[42px] text-primary leading-tight mb-5">
+                            Get a Free 1-Page Blueprint of Your New Site.
+                        </h2>
+                        <p class="font-body-lg text-body-lg text-secondary-auralis mb-8">
+                            Let us show you what your business could look like before you pay us a single cent. Pick a discovery slot or drop your details below and we will prepare a custom live concept in 48 hours.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 pt-6 border-t border-auralis">
+                        <div class="flex items-center gap-3 text-sm text-primary">
+                            <span class="material-symbols-outlined text-emerald-600">check_circle</span>
+                            <span>No credit card required to see your custom concept</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-primary">
+                            <span class="material-symbols-outlined text-emerald-600">check_circle</span>
+                            <span>15-minute discovery walkthrough on your schedule</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-primary">
+                            <span class="material-symbols-outlined text-emerald-600">check_circle</span>
+                            <span>Keep your current domain — we handle the migration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <form id="blueprint-form" onsubmit="handleBlueprintSubmit(event)" class="bg-card-auralis rounded-3xl p-6 md:p-9 border border-auralis shadow-sm space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-secondary-auralis mb-2">Your Name *</label>
+                                <input required type="text" placeholder="Alex Rivera" class="w-full rounded-xl border-auralis bg-surface-container-low px-4 py-3 text-sm focus:border-primary focus:ring-primary">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-secondary-auralis mb-2">Work Email *</label>
+                                <input required type="email" placeholder="alex@yourbusiness.com" class="w-full rounded-xl border-auralis bg-surface-container-low px-4 py-3 text-sm focus:border-primary focus:ring-primary">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-secondary-auralis mb-2">Business Name &amp; Niche *</label>
+                                <input required type="text" placeholder="e.g., Rivera Dental Studio" class="w-full rounded-xl border-auralis bg-surface-container-low px-4 py-3 text-sm focus:border-primary focus:ring-primary">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-secondary-auralis mb-2">Preferred Plan Tier</label>
+                                <select id="plan-select" class="w-full rounded-xl border-auralis bg-surface-container-low px-4 py-3 text-sm focus:border-primary focus:ring-primary">
+                                    <option value="Growth ($179/mo)">Growth — $179/mo (Most Popular)</option>
+                                    <option value="Starter ($99/mo)">Starter — $99/mo</option>
+                                    <option value="Premium ($299/mo)">Premium — $299/mo</option>
+                                    <option value="Not sure yet">Not sure yet — Recommend for me</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Quick Discovery Slot Picker -->
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-secondary-auralis mb-2">Reserve a 15-Min Blueprint Review Slot</label>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5" id="slot-picker">
+                                <button type="button" onclick="selectSlot(this)" class="slot-btn px-3 py-2.5 rounded-xl border border-primary bg-primary text-on-primary text-xs font-medium text-center transition-all">
+                                    Tomorrow • 10:00 AM
+                                </button>
+                                <button type="button" onclick="selectSlot(this)" class="slot-btn px-3 py-2.5 rounded-xl border border-auralis bg-surface-container-low text-primary text-xs font-medium text-center hover:border-primary transition-all">
+                                    Tomorrow • 2:30 PM
+                                </button>
+                                <button type="button" onclick="selectSlot(this)" class="slot-btn px-3 py-2.5 rounded-xl border border-auralis bg-surface-container-low text-primary text-xs font-medium text-center hover:border-primary transition-all">
+                                    Thu • 11:00 AM
+                                </button>
+                                <button type="button" onclick="selectSlot(this)" class="slot-btn px-3 py-2.5 rounded-xl border border-auralis bg-surface-container-low text-primary text-xs font-medium text-center hover:border-primary transition-all">
+                                    Thu • 4:00 PM
+                                </button>
+                                <button type="button" onclick="selectSlot(this)" class="slot-btn px-3 py-2.5 rounded-xl border border-auralis bg-surface-container-low text-primary text-xs font-medium text-center hover:border-primary transition-all">
+                                    Fri • 1:00 PM
+                                </button>
+                                <button type="button" onclick="selectSlot(this)" class="slot-btn px-3 py-2.5 rounded-xl border border-auralis bg-surface-container-low text-primary text-xs font-medium text-center hover:border-primary transition-all">
+                                    Send via Email Only
+                                </button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-secondary-auralis mb-2">Current Website URL or Vision Notes (Optional)</label>
+                            <textarea rows="2" placeholder="Share your current website URL or tell us 1-2 goals for your new site..." class="w-full rounded-xl border-auralis bg-surface-container-low px-4 py-3 text-sm focus:border-primary focus:ring-primary"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-primary text-on-primary py-4 rounded-full font-medium text-base hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-md">
+                            <span>Claim Your Free Concept Design</span>
+                            <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                        </button>
+
+                        <p id="form-feedback" class="hidden text-center text-sm font-medium text-emerald-700 bg-emerald-500/10 border border-emerald-500/20 rounded-xl py-3 px-4"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="w-full border-t border-zinc-200 mt-auto py-12 bg-transparent">
+    <div class="max-w-[1280px] mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="flex items-center gap-8">
+            <span class="text-lg font-bold tracking-tighter text-zinc-900 font-h3 text-[20px]">Auralis Studio</span>
+            <span class="text-sm text-secondary-auralis font-body-md">© 2026 Auralis Web Subscriptions. $0 Upfront. Lifetime Updates Included.</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-6">
+            <a class="text-sm text-secondary-auralis hover:text-primary transition-colors" href="#why-us">Why Us</a>
+            <a class="text-sm text-secondary-auralis hover:text-primary transition-colors" href="#pricing">Pricing</a>
+            <a class="text-sm text-secondary-auralis hover:text-primary transition-colors" href="#gallery">Concepts</a>
+            <a class="text-sm text-secondary-auralis hover:text-primary transition-colors" href="#claim-blueprint">Claim Free Blueprint</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const concepts = {
+        restaurant: {
+            url: "https://oma-kitchen.auralis.site",
+            badge: "Hospitality & Dining Layout",
+            title: "Oma Artisan Kitchen & Wine Bar",
+            desc: "Designed for high-conversion table reservations, interactive seasonal menus, and instant mobile tap-to-call directions.",
+            speed: "99 / 100",
+            feature: "1-Click Booking",
+            img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1000&auto=format&fit=crop"
+        },
+        medical: {
+            url: "https://vanguard-clinic.auralis.site",
+            badge: "Medical & Accounting Portfolio",
+            title: "Vanguard Concierge Health & CPA Advisory",
+            desc: "HIPAA-ready patient intake flows, trust-building practitioner credentials, and instant consultation scheduling.",
+            speed: "100 / 100",
+            feature: "Client Portal & Intake",
+            img: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1000&auto=format&fit=crop"
+        },
+        service: {
+            url: "https://lumina-homeservices.auralis.site",
+            badge: "Local Service Lander",
+            title: "Lumina Climate & Architectural Contracting",
+            desc: "Built to dominate local search with instant quote calculators, verified review carousels, and emergency dispatch CTAs.",
+            speed: "99 / 100",
+            feature: "Instant Quote Form",
+            img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop"
+        }
+    };
+
+    function switchConcept(key) {
+        const data = concepts[key];
+        document.getElementById('concept-url').textContent = data.url;
+        document.getElementById('concept-badge').textContent = data.badge;
+        document.getElementById('concept-title').textContent = data.title;
+        document.getElementById('concept-desc').textContent = data.desc;
+        document.getElementById('concept-speed').textContent = data.speed;
+        document.getElementById('concept-feature').textContent = data.feature;
+        document.getElementById('concept-img').src = data.img;
+
+        document.querySelectorAll('.concept-tab').forEach(btn => {
+            btn.className = "concept-tab px-5 py-2 text-secondary-auralis rounded-full text-sm font-medium hover:text-primary transition-all";
+        });
+        const activeBtn = document.getElementById('tab-' + key);
+        activeBtn.className = "concept-tab px-5 py-2 bg-surface text-primary rounded-full text-sm font-medium shadow-sm transition-all";
+    }
+
+    function selectSlot(btn) {
+        document.querySelectorAll('.slot-btn').forEach(el => {
+            el.className = "slot-btn px-3 py-2.5 rounded-xl border border-auralis bg-surface-container-low text-primary text-xs font-medium text-center hover:border-primary transition-all";
+        });
+        btn.className = "slot-btn px-3 py-2.5 rounded-xl border border-primary bg-primary text-on-primary text-xs font-medium text-center transition-all";
+    }
+
+    function selectPlan(planValue) {
+        const select = document.getElementById('plan-select');
+        if (select) {
+            select.value = planValue;
+        }
+    }
+
+    function handleBlueprintSubmit(e) {
+        e.preventDefault();
+        const feedback = document.getElementById('form-feedback');
+        feedback.textContent = "Your Free 1-Page Blueprint request is confirmed! Check your inbox for your discovery confirmation.";
+        feedback.classList.remove('hidden');
+        e.target.reset();
+    }
+</script>
+</body>
+</html>
