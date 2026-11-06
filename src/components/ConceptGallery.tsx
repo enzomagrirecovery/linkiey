@@ -28,11 +28,11 @@ export function ConceptGallery() {
   const { t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
-  // Automatically flow through the 3 showcase items every 3 seconds
+  // Automatically flow through the 3 showcase items every 1.5 seconds (1500ms)
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % CONCEPT_KEYS.length);
-    }, 3000);
+    }, 1500);
     return () => clearInterval(interval);
   }, [activeIndex]);
 
